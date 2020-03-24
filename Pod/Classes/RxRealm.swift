@@ -520,8 +520,8 @@ public extension Observable where Element: Object {
                         return
                     }
                     observer.onNext(object)
-                case .deleted:
-                    observer.onError(RxRealmError.objectDeleted)
+                case .deleted: return
+                    //observer.onError(RxRealmError.objectDeleted)
                 case let .error(error):
                     observer.onError(error)
                 }
@@ -548,8 +548,8 @@ public extension Observable where Element: Object {
                     for change in changes {
                         observer.onNext(change)
                     }
-                case .deleted:
-                    observer.onError(RxRealmError.objectDeleted)
+                case .deleted: return 
+                    //observer.onError(RxRealmError.objectDeleted)
                 case let .error(error):
                     observer.onError(error)
                 }
